@@ -1,0 +1,87 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.home-background-image {
+  background-image: url('http://i2.cdn.turner.com/cnnnext/dam/assets/140128185640-south-korea-food-trend-watch-someone-eat-vosot-00002021-story-top.jpg');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.signup-background-image {
+  background-image: url('http://i.dailymail.co.uk/i/pix/2014/01/28/article-2547254-1AFC1C9F00000578-400_634x479.jpg');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.signup-content {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  top: 30px;
+  left: 700px;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+  padding-bottom: 10px;
+}
+
+.home-signin {
+  background: rgba(255, 255, 255, 0.20);
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  top: 90px;
+  left: 550px;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+  padding-left: 10px;
+}
