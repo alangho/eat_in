@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+    @micropost = current_user.microposts.build if logged_in?
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
 
   # GET /users/new
