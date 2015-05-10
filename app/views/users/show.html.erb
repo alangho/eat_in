@@ -12,6 +12,8 @@
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
       </section>
+
+
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
@@ -21,18 +23,14 @@
         <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
-          <%= link_to "Find a table", search_path, class: "btn btn-primary" %>
+      <%= link_to "Find a table", search_path, class: "btn btn-primary" %>
 
     </aside>
     <div class="col-md-8">
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
-    </div>
+    <%= render 'follow_form' if logged_in? %>
+      <h3>Newsfeed</h3>
+      <%= render 'shared/feed' %>
+  </div>
   </div>
 <% else %>
 
