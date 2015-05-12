@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -98,7 +100,7 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
-        
+
   private
 
       # Converts email to all lower-case.

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @micropost  = current_user.microposts.build
     @feed_items = current_user.feed.paginate(page: params[:page])
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
-    
+
   private
 
     def user_params

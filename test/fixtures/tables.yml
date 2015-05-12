@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  cuisine: MyString
+  region: MyString
+  user_id: 
+  show: MyString
+  search: MyString
+
+two:
+  title: MyString
+  cuisine: MyString
+  region: MyString
+  user_id: 
+  show: MyString
+  search: MyString

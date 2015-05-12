@@ -28,6 +28,24 @@ User.create!(username:  "Ivana",
               activated_at: Time.zone.now)
 end
 
+cuisine_array = ['African', 'American', 'British', 'Carribean', 'Chinese', 'European', 'French', 'Greek',
+                  'Indian', 'Japanese', 'Korean', 'Irish', 'Italian', 'Mexican']
+region_array = ['North America', 'Central America', 'South America', 'Carribean', 'West Europe',
+                  'Africa', 'East Europe', 'Middle East', 'South Asia', 'East Asia', 'Southeast Asia',
+                  'Australia']
+
+# Tables
+(1..100).each do |n|
+  title = Faker::Lorem.sentence(4)
+  cuisine = cuisine_array.sample
+  region = region_array.sample
+  user = User.find(n)
+  Table.create!(title: title,
+                cuisine: cuisine,
+                region: region,
+                user: user)
+end
+
 # Microposts
 users = User.order(:created_at).take(6)
 50.times do
@@ -39,6 +57,6 @@ end
 users = User.all
 user  = users.first
 following = users[2..50]
-followers = users[3..40]
+followers = users[2..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
