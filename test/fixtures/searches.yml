@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  cuisine: MyString
+  region: MyString
+  table_id: 1
+  new: MyString
+  show: MyString
+
+two:
+  keywords: MyString
+  cuisine: MyString
+  region: MyString
+  table_id: 1
+  new: MyString
+  show: MyString

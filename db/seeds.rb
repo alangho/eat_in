@@ -36,14 +36,17 @@ region_array = ['North America', 'Central America', 'South America', 'Carribean'
 
 # Tables
 (1..100).each do |n|
+
+  offset = rand(User.count)
+
   title = Faker::Lorem.sentence(4)
   cuisine = cuisine_array.sample
   region = region_array.sample
-  user = User.find(n)
+  rand_record = User.offset(offset).first
   Table.create!(title: title,
                 cuisine: cuisine,
                 region: region,
-                user: user)
+                user: rand_record)
 end
 
 # Microposts

@@ -3,18 +3,27 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@table) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :cuisine %>
-      <%= f.text_field :cuisine, class: 'form-control' %>
-
-      <%= f.label :region %>
-      <%= f.text_field :region, class: 'form-control' %>
-
-      <%= f.label :dining_type %>
-      <%= f.text_field :dining_type, class: 'form-control' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+		<% form_for @search do |f| %>
+		  <p>
+		    <%= f.label :keywords %><br />
+		    <%= f.text_field :keywords %>
+		  </p>
+		  <p>
+		    <%= f.label :cuisine %><br />
+		    <%= f.collection_select :table_id, Table.all, :id, :cuisine, :include_blank => true %>
+		  </p>
+		  <p>
+		    <%= f.label :region %><br />
+		    <%= f.collection_select :table_id, Table.all, :id, :region, :include_blank => true %>
+		  </p>
+		  <p><%= f.submit "Find a table!", class: 'btn btn-primary' %></p>
+		<% end %>
   </div>
 </div>
+
+<% form_tag tables_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
