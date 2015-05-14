@@ -1,23 +1,20 @@
 <% provide(:title, 'Search for a table') %>
 <h1>Search for a table</h1>
 
-
-
-<div class="col-md-6 col-md-offset-3">
-	<%= form_tag tables_path, :method => 'get' do %>
-	<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine)), { include_blank: true } %>
-	<%= select_tag :region , options_for_select(Table.uniq.pluck(:region)), { include_blank: true } %>		    		    
-	<%= submit_tag "Search", :name => nil %>
-	<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_tag tables_path, :method => 'get' do %>
+				<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine)), { include_blank: true } %>
+				<%= select_tag :region , options_for_select(Table.uniq.pluck(:region)), { include_blank: true } %>		    	  
+			<%= submit_tag "Search", :name => nil %>
+		<% end %>
+	</div>
 </div>
-</div>
 
-<% for table in @tables %>
-
-<% if table.id % 3 == 1 %>
 <div class = "row">
-	<div class="col-md-3 col-md-offset-1">
-		<div class="thumbnail">
+  <% @tables.each do |table| %>
+  <div class="col-sm-3">      	
+  	<div class="table">
 			<h4><%= link_to table.title, table %></h4>
 			<p>
 				Cuisine: <%= table.cuisine %><br />
@@ -27,35 +24,6 @@
 		</div> 
 	</div>
 	<% end %>
+</div>
 
-	<% if table.id % 3 == 2 %>
-	<div class="col-md-3">
-		<div class="thumbnail">
-			<h4><%= link_to table.title, table %></h4>
-			<p>
-				Cuisine: <%= table.cuisine %><br />
-				Region: <%= table.region %><br />
-				User: <%= table.user.username %>
-			</p>		
-		</div> 
-	</div>
-	<% end %>
 
-	<% if table.id % 3 == 0 %>
-	<div class="col-md-3">
-		<div class="thumbnail">
-			<h4><%= link_to table.title, table %></h4>
-			<p>
-				Cuisine: <%= table.cuisine %><br />
-				Region: <%= table.region %><br />
-				User: <%= table.user.username %>
-			</p>			</div> 
-		</div>
-	</div>
-
-	<div class = "row">
-		<br />
-	</div>
-	<% end %>
-
-	<% end %>

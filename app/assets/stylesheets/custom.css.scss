@@ -174,3 +174,15 @@ span.picture {
     border: 0;
   }
 }
+
+.table {
+    display: block;
+    overflow: hidden;
+    height: 150px;
+    width: 250px;
+    outline: #000000 solid thin;
+
+    h4, p {
+      padding-left: 10px;
+    }
+}
