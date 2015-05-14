@@ -4,12 +4,21 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<%= form_tag tables_path, :method => 'get' do %>
-				<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine)), { include_blank: true } %>
-				<%= select_tag :region , options_for_select(Table.uniq.pluck(:region)), { include_blank: true } %>		    	  
+				<%= label_tag :cuisine %>
+				<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine).sort), { include_blank: true } %>
+
+				<%= label_tag :region %>
+				<%= select_tag :region , options_for_select(Table.uniq.pluck(:region).sort), { include_blank: true } %>		    	  
 			<%= submit_tag "Search", :name => nil %>
 		<% end %>
 	</div>
 </div>
+
+<% if @tables %>
+	<p>		
+		<%= @tables.count %> results found
+	</p>
+<% end %>
 
 <div class = "row">
   <% @tables.each do |table| %>
