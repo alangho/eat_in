@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @micropost  = current_user.microposts.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
+    @feed_items = @user.feed.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated
   end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def update
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 

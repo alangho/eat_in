@@ -2,35 +2,29 @@
 
 <% if logged_in? %>
   <div class="row">
+
     <aside class="col-md-4">
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
 
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-        <li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
-        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-        <% else %>
-        <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-      <%= link_to "Find a table", tables_path, class: "btn btn-primary" %>
+      <% if current_user?(@user) %>
+        <section class="micropost_form">
+          <%= render 'shared/micropost_form' %>
+        </section>
+      <% end %>
+
+      <%= render 'follow_form' if logged_in? %>
 
     </aside>
+
     <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
       <h3>Newsfeed</h3>
       <%= render 'shared/feed' %>
     </div>
+
   </div>
+
 <% else %>
 
 <% end %>

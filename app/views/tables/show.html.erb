@@ -1,7 +1,6 @@
 <% provide(:title, @table.title) %>
 
 <div class="row">
-  <div class="col-md-4">
     <%= link_to gravatar_for(@user, size: 50), @user %>
     <h4><%= @user.username %></h4>
     <p>
@@ -10,5 +9,4 @@
     	<%= @table.region %><br />
   	</p>
     <%= link_to "Leave table", tables_path, class: 'btn btn-primary' %> 
-  </div>
 </div>
