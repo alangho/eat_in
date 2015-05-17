@@ -2,37 +2,26 @@
 <h1>Search for a table</h1>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-6">
 		<%= form_tag tables_path, :method => 'get' do %>
-				<%= label_tag :cuisine %>
-				<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine).sort), { include_blank: true } %>
+			<%= label_tag :cuisine %>
+			<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine).sort), { include_blank: true } %>
 
-				<%= label_tag :region %>
-				<%= select_tag :region , options_for_select(Table.uniq.pluck(:region).sort), { include_blank: true } %>		    	  
-			<%= submit_tag "Search", :name => nil %>
+			<%= label_tag :region %>
+			<%= select_tag :region , options_for_select(Table.uniq.pluck(:region).sort), { include_blank: true } %>		  
+			<%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
 		<% end %>
 	</div>
 </div>
 
-<% if @tables %>
-	<p>		
-		<%= @tables.count %> tables found
-	</p>
-<% end %>
-
-<div class = "row">
-  <% @tables.each do |table| %>
-  <div class="col-sm-3">      	
-  	<div class="table">
-			<h4><%= link_to truncate(table.title, :length => 25), table %></h4>
-			<p>
-				Cuisine: <%= table.cuisine %><br />
-				Region: <%= table.region %><br />
-				User: <%= table.user.username %>
-			</p>
-		</div> 
-	</div>
-	<% end %>
+<div id="table_count">
+	<p><%= @tables.count %> tables found!</p>
 </div>
 
+<div class="row" id="table-list">
+	<%= render @tables %>
+</div>
 
+<div id="infinite-scrolling">
+  <%= will_paginate %>
+</div>

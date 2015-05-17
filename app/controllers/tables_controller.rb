@@ -4,7 +4,14 @@ class TablesController < ApplicationController
 	end
 
 	def index
-  	@tables = Table.search(params[:search], params[:region])
+    @tables = Table.paginate(page: params[:page], per_page: 48)
+    if params[:search] || params[:region] 
+  	 @tables = Table.paginate(page: params[:page], per_page: 48).search(params[:search], params[:region])
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
 	end
 
   def tables

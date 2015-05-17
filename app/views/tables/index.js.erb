@@ -1,0 +1,7 @@
+$('#table-list').append('<%= j render @tables %>');
+<% if @tables.next_page %>
+	$('.pagination').replaceWith('<%= j will_paginate @tables %>');
+<% else %>
+	$(window).off('scroll');
+	$('.pagination').remove();
+<% end %>

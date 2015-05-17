@@ -1,0 +1,10 @@
+<div class="col-sm-3">      	
+	<div class="table">
+		<h4><%= link_to truncate(table.title, :length => 24), table %></h4>
+		<p>
+			Cuisine: <%= table.cuisine %><br />
+			Region: <%= table.region %><br />
+			User: <%= table.user.username %>
+		</p>
+	</div> 
+</div>
