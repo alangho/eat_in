@@ -1,5 +1,17 @@
 class TablesController < ApplicationController
 
+  def create
+    @table = Table.new(table_params)
+    @table.user = current_user
+    @table.cuisine = params[:cuisine]
+    @table.region = "East Asia"
+    if @table.save
+      redirect_to @table
+    else
+      render 'new'
+    end
+  end
+
 	def search
 	end
 
@@ -14,13 +26,23 @@ class TablesController < ApplicationController
     end
 	end
 
+  def new
+    @table = Table.new
+  end
+
   def tables
 
   end
 
   def show
-  	@user = User.find(params[:id])
   	@table = Table.find(params[:id])
+    @user = User.find(@table.user.id)
   end
+
+  private
+
+    def table_params
+      params.require(:table).permit(:title, :cuisine)
+    end
 
 end

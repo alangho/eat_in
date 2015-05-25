@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'tables/show'
+  get 'tables/create' => 'tables#new'
 
   root      'static_pages#home'
   get 'password_resets/new'
