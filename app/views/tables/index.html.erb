@@ -11,11 +11,13 @@
 <div class="row">
 	<div class="col-md-6">
 		<%= form_tag tables_path, :method => 'get' do %>
-			<%= label_tag :cuisine %>
-			<%= select_tag :search, options_for_select(Table.uniq.pluck(:cuisine).sort), { include_blank: true } %>
+			<%= label_tag :keywords %>
+			<%= text_field_tag :keywords, nil, class: 'form-control' %>
 
-			<%= label_tag :region %>
-			<%= select_tag :region , options_for_select(Table.uniq.pluck(:region).sort), { include_blank: true } %>		  
+			<%= label_tag :cuisine %>
+			<%= select_tag :cuisine, options_for_select(Table.uniq.pluck(:cuisine).sort), { include_blank: true,
+				class: 'form-control' } %>
+
 			<%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
 		<% end %>
 	</div>

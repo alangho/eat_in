@@ -41,11 +41,9 @@ region_array = ['North America', 'Central America', 'South America', 'Carribean'
 
   title = Faker::Lorem.sentence(4)
   cuisine = cuisine_array.sample
-  region = region_array.sample
   rand_record = User.offset(offset).first
   Table.create!(title: title,
                 cuisine: cuisine,
-                region: region,
                 user: rand_record)
 end
 
@@ -66,3 +64,17 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 following.each { |followed| ivan.follow(followed) }
 followers.each { |follower| follower.follow(ivan) }
+
+# Comments
+Comment.create!(body: Faker::Lorem.sentence(5),
+                micropost_id: 300,
+                user_id: 99)
+Comment.create!(body: Faker::Lorem.sentence(5),
+                micropost_id: 300,
+                user_id: 97)
+Comment.create!(body: Faker::Lorem.sentence(5),
+                micropost_id: 299,
+                user_id: 99)
+Comment.create!(body: Faker::Lorem.sentence(5),
+                micropost_id: 299,
+                user_id: 99)

@@ -4,7 +4,6 @@ class TablesController < ApplicationController
     @table = Table.new(table_params)
     @table.user = current_user
     @table.cuisine = params[:cuisine]
-    @table.region = "East Asia"
     if @table.save
       redirect_to @table
     else
@@ -17,8 +16,8 @@ class TablesController < ApplicationController
 
 	def index
     @tables = Table.paginate(page: params[:page], per_page: 48)
-    if params[:search] || params[:region] 
-  	 @tables = Table.paginate(page: params[:page], per_page: 48).search(params[:search], params[:region])
+    if params[:search] || params[:keywords] 
+  	 @tables = Table.paginate(page: params[:page], per_page: 48).search(params[:cuisine], params[:keywords])
     end
     respond_to do |format|
       format.html

@@ -110,6 +110,11 @@ input {
   padding-left: 10px;
 }
 
+.comments {
+  list-style: none;
+  padding-left: 60px;
+}
+
 /* microposts */
 
 .microposts {
@@ -227,3 +232,4 @@ span.picture {
 #table_count {
   padding-top: 20px;
 }
+
