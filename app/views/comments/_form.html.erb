@@ -1,0 +1,13 @@
+<div class="row">
+  <%= form_for([@micropost, @micropost.comments.new]) do |f| %>
+		<div class="col-md-9">
+	    <%= f.text_area :body, class: 'form-control', required: true, maxlength: 2000,
+	    	placeholder: 'Enter your comment' %>
+		</div>
+		<div class="col-md-2" id="commentSubmit">
+			<%= f.submit "Submit", :name => nil, class: 'btn btn-primary' %>
+		</div>
+  <%= f.input :micropost_id, :required => false, :as => :hidden %>
+
+	<% end %>
+</div>

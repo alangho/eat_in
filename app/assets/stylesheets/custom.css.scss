@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap/theme";
 
 /* header */
 .nav {
@@ -233,3 +234,10 @@ span.picture {
   padding-top: 20px;
 }
 
+.btn-group {
+  padding-bottom: 10px;
+}
+
+#commentSubmit {
+  padding-left: 0px;
+}

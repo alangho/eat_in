@@ -4,36 +4,39 @@
   <span class="content">
     <%= micropost.content %>
     <%= image_tag micropost.picture.url if micropost.picture? %>
-    </span>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+    <%= link_to "delete", micropost, method: :delete,
+    data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-
-
-
-<!--
-  <div class="btn-group">
-    <button type="button" class="btn-xs btn-success dropdown-toggle" id="addComment"
-      data-toggle="collapse" data-target="#post-<%= micropost.id %>" aria-expanded="false"><span class="expand">+</span>
-      Comment 
-    </button>
-  </div>
-  <div id="post-<%= micropost.id %>" class="collapse">
-    <div class="well">
-      Input comment text field tag here with submit button
-    </div>
-  </div>
--->
-
-
 </li>
 
-  <ol class="comments">
+<ol class="comments">
   <% if micropost.comments.any? %>
-  <%= render micropost.comments %>
-<% end %>
+    <%= render micropost.comments %>
+  <% end %>
+
+
+  <div id="post-<%= micropost.id %>" >
+    <div class="row" id="comments">
+      <div class="panel-body">
+        <ul class="media-list">
+          <%= form_for @comment, remote: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+            <div class="col-md-9">
+              <%= f.text_area :body, class: 'form-control', required: true, maxlength: 2000,
+              placeholder: 'Enter your comment' %>
+            </div>
+            <%= f.hidden_field :micropost_id, :value => micropost.id %>
+            <div class="col-md-2" id="commentSubmit">
+              <%= f.submit "Submit", :name => nil, class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>  
+  </div>
 </ol>

@@ -57,13 +57,10 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-ivan = users.second
 following = users[2..50]
 followers = users[2..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
-following.each { |followed| ivan.follow(followed) }
-followers.each { |follower| follower.follow(ivan) }
 
 # Comments
 Comment.create!(body: Faker::Lorem.sentence(5),
