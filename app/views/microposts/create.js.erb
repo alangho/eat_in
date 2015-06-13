@@ -1,0 +1,3 @@
+$('ol.microposts').prepend("<%= escape_javascript(render @micropost) %>");
+$('li#micropost-<%= @micropost.id %>').effect('highlight');
+$('textarea#micropost_content').val('');

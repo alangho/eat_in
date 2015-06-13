@@ -14,29 +14,10 @@
   </span>
 </li>
 
-<ol class="comments">
+<%= div_for micropost do %>
   <% if micropost.comments.any? %>
     <%= render micropost.comments %>
   <% end %>
+<% end %>
 
-
-  <div id="post-<%= micropost.id %>" >
-    <div class="row" id="comments">
-      <div class="panel-body">
-        <ul class="media-list">
-          <%= form_for @comment, remote: true do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
-            <div class="col-md-9">
-              <%= f.text_area :body, class: 'form-control', required: true, maxlength: 2000,
-              placeholder: 'Enter your comment' %>
-            </div>
-            <%= f.hidden_field :micropost_id, :value => micropost.id %>
-            <div class="col-md-2" id="commentSubmit">
-              <%= f.submit "Submit", :name => nil, class: 'btn btn-primary' %>
-            </div>
-          <% end %>
-        </ul>
-      </div>
-    </div>  
-  </div>
-</ol>
+<%= render 'shared/comment_form', micropost: micropost %>
