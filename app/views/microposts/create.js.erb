@@ -1,4 +1,3 @@
-$('ol.microposts').prepend("<%= escape_javascript(render @micropost) %>");
 $('textarea#micropost_content').val('');
 
 publisher = client.publish('/microposts', {

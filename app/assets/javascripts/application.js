@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require faye
 //= require microposts
+//= require comments
 //= require_tree .
