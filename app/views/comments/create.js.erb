@@ -1,2 +1,6 @@
 $('div#micropost_<%= @micropost.id %>.micropost').append("<%= escape_javascript(render @comment) %>");
 $('textarea#comment_body.form-control').val('');
+
+publisher = client.publish('/comments', {
+  message: '<%= j render @comment %>'
+});
