@@ -5,7 +5,9 @@ User.create!(username:  "Example User",
              password_confirmation: "foobar",
              admin:     true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             location: "Hawaii", 
+             about_me: Faker::Lorem.sentence(10))
 
 User.create!(username:  "Ivana",
              email: "i@van.com",

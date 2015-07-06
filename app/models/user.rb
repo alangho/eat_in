@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_blank: true
   extend FriendlyId
   friendly_id :username, use: :slugged
+  validates :about_me, length: { maximum: 140 }
 
   # Returns the hash digest of the given string.
   def self.digest(string)

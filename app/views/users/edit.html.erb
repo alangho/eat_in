@@ -15,6 +15,12 @@
       <%= f.label :password_confirmation, " Password Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+
+      <%= f.label :about_me %>
+      <%= f.text_area :about_me, class: 'form-control' %>
+
       <div class="gravatar_edit">
         <%= gravatar_for @user %>
         <a href="http://gravatar.com/emails" target=_blank>change</a>
