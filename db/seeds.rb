@@ -1,3 +1,4 @@
+countries_array = Country.all
 # Users
 User.create!(username:  "Example User",
              email: "example@railstutorial.org",
@@ -6,7 +7,7 @@ User.create!(username:  "Example User",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now,
-             location: "Hawaii", 
+             location: countries_array.sample[1], 
              about_me: Faker::Lorem.sentence(10))
 
 User.create!(username:  "Ivana",
@@ -15,7 +16,9 @@ User.create!(username:  "Ivana",
              password_confirmation: "foobar",
              admin:     true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             location: countries_array.sample[1], 
+             about_me: Faker::Lorem.sentence(10))
 
 99.times do |n|
   name  = Faker::Name.name
@@ -27,7 +30,9 @@ User.create!(username:  "Ivana",
               password_confirmation: password,
               admin: false,
               activated: true,
-              activated_at: Time.zone.now)
+              activated_at: Time.zone.now,
+              location: countries_array.sample[1], 
+              about_me: Faker::Lorem.sentence(10))
 end
 
 cuisine_array = ['African', 'American', 'British', 'Carribean', 'Chinese', 'European', 'French', 'Greek',

@@ -6,6 +6,10 @@
 <%= @table.title %><br />
 <%= @table.cuisine %><br />
 
-<%= link_to "Leave table", tables_path, class: 'btn btn-primary' %> 
-
+<% if @table.user == current_user %>
+	<%= link_to "Clean up table", @table, method: :delete, data: { confirm: "You sure?" }, 
+			class: 'btn btn-danger' %>
+<% else %>
+	<%= link_to "Leave table", tables_path, class: 'btn btn-primary' %> 
+<% end %>
 <%= render 'chat' %>

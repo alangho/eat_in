@@ -29,6 +29,12 @@ class TablesController < ApplicationController
     @table = Table.new
   end
 
+  def destroy
+    Table.find(params[:id]).destroy
+    flash[:success] = "Table sucessfully cleaned"
+    redirect_to root_url
+  end
+
   def tables
 
   end
