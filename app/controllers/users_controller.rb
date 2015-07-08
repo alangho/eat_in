@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     @micropost  = @user.microposts.build
     @comment = Comment.new
     @feed_items = @user.feed.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
     redirect_to root_url and return unless @user.activated
   end
 
