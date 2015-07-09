@@ -9,7 +9,7 @@
 <h1>Search for a table</h1>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6" id="top">
 		<%= form_tag tables_path, :method => 'get' do %>
 			<%= label_tag :keywords %>
 			<%= text_field_tag :keywords, nil, class: 'form-control' %>
@@ -26,6 +26,9 @@
 <div id="table_count">
 	<p><%= @tables.count %> tables found!</p>
 </div>
+
+      <%= render 'shared/arrow_scroll' %>
+
 
 <div class="row" id="table-list">
 	<%= render @tables %>

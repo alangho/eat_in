@@ -241,3 +241,14 @@ span.picture {
 #commentSubmit {
   padding-left: 0px;
 }
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px;
+    left: 90%;
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 50px;
+    left: 90%;
+}
