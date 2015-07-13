@@ -3,6 +3,7 @@
     <div class="form-group">
       <%= f.label :body, 'Enter your message:' %>
       <%= f.text_area :body, rows: 3, class: 'form-control', required: true, maxlength: 2000 %>
+      <%= hidden_field_tag :table_id, @table.id %>
     </div>
  
     <%= f.submit 'Submit', class: 'btn btn-primary btn-lg' %>

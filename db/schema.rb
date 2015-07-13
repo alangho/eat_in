@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713013359) do
+ActiveRecord::Schema.define(version: 20150713042251) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 20150713013359) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "table_id"
   end
 
+  add_index "messages", ["table_id"], name: "index_messages_on_table_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "microposts", force: :cascade do |t|

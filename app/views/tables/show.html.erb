@@ -14,10 +14,8 @@
 <% end %>
 
 <%= render 'messages/form' %>
-  <div class="panel panel-default" id="messages">
-    <div class="panel-body">
-      <ul class="media-list">
+  <div class="panel panel-default" id="table-<%= @table.id %>-messages">
+
         <%= render @messages %>
-      </ul>
-    </div>
+
   </div>

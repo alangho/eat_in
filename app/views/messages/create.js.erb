@@ -1,3 +1,5 @@
+$('div#table-<%= @message.table.id %>-messages').prepend("<%= escape_javascript(render @message) %>");
+
 publisher = client.publish('/messages', {
   message: '<%= j render @message %>'
 });

@@ -4,6 +4,8 @@ class MessagesController < ApplicationController
 	  respond_to do |format|
 	    if current_user
 	      @message = current_user.messages.build(message_params)
+	      @table = Table.find(params[:table_id])
+	      @message.table = @table
 	      if @message.save
 	        flash.now[:success] = 'Your comment was successfully posted!'
 	      else
@@ -21,7 +23,7 @@ class MessagesController < ApplicationController
 	private
 	 
 	def message_params
-	  params.require(:message).permit(:body)
+	  params.require(:message).permit(:body, :table_id)
 	end
 
 end
