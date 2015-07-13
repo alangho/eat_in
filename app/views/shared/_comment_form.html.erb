@@ -1,13 +1,27 @@
-<div class="row">
+<div class="row" id="commentForm">
 
-<%= form_for([micropost, @comment], remote: true) do |f| %>
+<%= form_for([micropost, @comment], html: { multipart: true }, remote: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <div class="col-md-9">
       <%= f.text_area :body, class: 'form-control', required: true, maxlength: 2000,
         placeholder: 'Enter your comment' %>
     </div>
 
+		<span class="picture">
+			<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+		</span>
+
     <div class="col-md-2" id="commentSubmit">
       <%= f.submit "Submit", :name => nil, class: 'btn btn-primary' %>
-    </div><% end %>
+    </div>
+  <% end %>
 </div>
+
+<script type="text/javascript">
+  $('#comment_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

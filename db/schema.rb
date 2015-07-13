@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713042251) do
+ActiveRecord::Schema.define(version: 20150713222848) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150713042251) do
     t.integer  "micropost_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "picture"
   end
 
   add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id"

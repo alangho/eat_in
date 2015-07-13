@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   private
    
   def comment_params
-    params.require(:comment).permit(:body, :micropost_id)
+    params.require(:comment).permit(:body, :micropost_id, :picture)
   end
 
 end
