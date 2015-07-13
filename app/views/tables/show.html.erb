@@ -12,4 +12,12 @@
 <% else %>
 	<%= link_to "Leave table", tables_path, class: 'btn btn-primary' %> 
 <% end %>
-<%= render 'chat' %>
+
+<%= render 'messages/form' %>
+  <div class="panel panel-default" id="messages">
+    <div class="panel-body">
+      <ul class="media-list">
+        <%= render @messages %>
+      </ul>
+    </div>
+  </div>

@@ -1,9 +1,11 @@
-if ( ($(window).height() + 100) < $(document).height() ) {
-    $('#top-link-block').removeClass('hidden').affix({
-        // how far to scroll down before link "slides" into view
-        offset: {top:500}
-    });
-}
+$(document).on('scroll', function() {
+
+	if ($(window).scrollTop() > 100 ) {
+	    $('#top-link-block').removeClass('hidden').affix({
+	        // how far to scroll down before link "slides" into view
+	        offset: {top:500}
+	    });
+	}});
 
 $('#table-list').append('<%= j render @tables %>');
 <% if @tables.next_page %>

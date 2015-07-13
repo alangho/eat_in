@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'messages/new'
+
+  get 'messages/create'
+
   get 'tables/show'
   get 'tables/create' => 'tables#new'
 
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :relationships,       only: [:create, :destroy]
   resources :tables             
+  resources :messages,            only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

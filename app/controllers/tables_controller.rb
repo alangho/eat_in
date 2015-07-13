@@ -42,6 +42,8 @@ class TablesController < ApplicationController
   def show
   	@table = Table.find(params[:id])
     @user = User.find(@table.user.id)
+    @message = Message.new
+    @messages = Message.order('created_at DESC')
   end
 
   private

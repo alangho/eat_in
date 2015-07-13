@@ -1,0 +1,7 @@
+publisher = client.publish('/messages', {
+  message: '<%= j render @message %>'
+});
+ 
+publisher.callback(function() {
+  $('#message_body').val('');
+});

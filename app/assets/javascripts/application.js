@@ -19,4 +19,5 @@
 //= require faye
 //= require microposts
 //= require comments
+//= require messages
 //= require_tree .

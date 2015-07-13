@@ -1,5 +1,6 @@
 class Table < ActiveRecord::Base
   belongs_to :user
+  has_many :messages
 
 def self.search(cuisine, keywords)
   if cuisine || keywords
