@@ -1,4 +1,6 @@
-<%= link_to gravatar_for(@user, size: 50), @user %>
+<div class="avatar">
+<%= image_tag @user.avatar.url if @user.avatar? %>
+</div>
 <h3><%= @user.username %></h3>
 
 <div class="col-md-12">

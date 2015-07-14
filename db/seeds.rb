@@ -8,7 +8,8 @@ User.create!(username:  "Example User",
              activated: true,
              activated_at: Time.zone.now,
              location: countries_array.sample[1], 
-             about_me: Faker::Lorem.sentence(10))
+             about_me: Faker::Lorem.sentence(10),
+             avatar: Faker::Avatar.image)
 
 User.create!(username:  "Ivana",
              email: "i@van.com",
@@ -18,7 +19,8 @@ User.create!(username:  "Ivana",
              activated: true,
              activated_at: Time.zone.now,
              location: countries_array.sample[1], 
-             about_me: Faker::Lorem.sentence(10))
+             about_me: Faker::Lorem.sentence(10),
+             avatar: Faker::Avatar.image)
 
 99.times do |n|
   name  = Faker::Name.name
@@ -32,7 +34,8 @@ User.create!(username:  "Ivana",
               activated: true,
               activated_at: Time.zone.now,
               location: countries_array.sample[1], 
-              about_me: Faker::Lorem.sentence(10))
+              about_me: Faker::Lorem.sentence(10),
+              avatar: Faker::Avatar.image)
 end
 
 cuisine_array = ['African', 'American', 'British', 'Carribean', 'Chinese', 'European', 'French', 'Greek',

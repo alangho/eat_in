@@ -1,6 +1,6 @@
 <% provide(:title, @table.title) %>
 
-<%= link_to gravatar_for(@user, size: 50), @user %>
+<%= image_tag @user.avatar.url if @user.avatar? %>
 <h4><%= @user.username %></h4>
 
 <%= @table.title %><br />

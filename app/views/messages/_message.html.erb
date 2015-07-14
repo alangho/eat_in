@@ -1,5 +1,5 @@
 <li class="media comment">
-  <%= link_to gravatar_for(message.user, size: 50), message.user %>
+  <%= image_tag message.user.avatar.url if message.user.avatar? %>
 
   <div class="media-body">
     <h4 class="media-heading"><%= message.user.username %> says

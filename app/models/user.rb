@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
   validates :about_me, length: { maximum: 140 }
+  mount_uploader :avatar, PictureUploader
+  validate :avatar_size
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -116,4 +118,12 @@ class User < ActiveRecord::Base
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
+
+    # Validates the size of an uploaded avatar.
+    def avatar_size
+      if avatar.size > 5.megabytes
+        errors.add(:avatar, "should be less than 5MB")
+      end
+    end
+
 end
