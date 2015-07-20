@@ -3,7 +3,7 @@
 
   <div class="media-body">
     <h4 class="media-heading"><%= message.user.username %> says
-      <small class="text-muted">[at <%= message.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]:</small></h4>
+      <small class="text-muted">[<%= message.created_at.strftime('%H:%M:%S') %>]:</small></h4>
     <p><%= message.body %></p>
   </div>
 </li>
