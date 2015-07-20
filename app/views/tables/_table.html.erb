@@ -1,5 +1,8 @@
 <div class="col-sm-3">      	
 	<div class="table">
+		<div class="table-image">
+			<%= image_tag table.user.avatar.url if table.user.avatar? %>
+		</div>
 		<h4><%= link_to truncate(table.title, :length => 24), table %></h4>
 		<p>
 			Cuisine: <%= table.cuisine %><br />

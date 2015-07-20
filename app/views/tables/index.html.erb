@@ -1,7 +1,8 @@
 <% provide(:title, 'Search for a table') %>
+<%= render 'shared/arrow_scroll' %>
 
 <% if logged_in? %>
-	<div class="row">
+	<div class="row" id="top">
 		<%= link_to "Create a table!", tables_create_path, class: 'btn btn-success' %>
 	</div>
 <% end %>
@@ -9,7 +10,7 @@
 <h1>Search for a table</h1>
 
 <div class="row">
-	<div class="col-md-6" id="top">
+	<div class="col-md-6">
 		<%= form_tag tables_path, :method => 'get' do %>
 			<%= label_tag :keywords %>
 			<%= text_field_tag :keywords, nil, class: 'form-control' %>
@@ -26,9 +27,6 @@
 <div id="table_count">
 	<p><%= @tables.count %> tables found!</p>
 </div>
-
-      <%= render 'shared/arrow_scroll' %>
-
 
 <div class="row" id="table-list">
 	<%= render @tables %>

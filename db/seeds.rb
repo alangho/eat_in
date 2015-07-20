@@ -10,7 +10,7 @@ User.create!(username:  "Example User",
              location: countries_array.sample[1], 
              about_me: Faker::Lorem.sentence(10),
              avatar: Faker::Avatar.image)
-
+#remote_avatar_url: Faker::Avatar.image works, but images too large
 User.create!(username:  "Ivana",
              email: "i@van.com",
              password:              "foobar",
