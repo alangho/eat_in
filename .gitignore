@@ -18,5 +18,3 @@
 
 # Ignore uploaded test images.
 /public/uploads
-
-/config/private_pub.yml
