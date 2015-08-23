@@ -3,8 +3,7 @@
 	{ id: "table_#{@table.id}" }) do |f| %>
     <div class="form-group">
     	<%= f.text_area :body, class: "form-control", required: true, maxlength: 2000, 
-    		"data-cid" => @table.id, id: 'message_body' %>
-      <%= f.label :body, 'Enter your message:' %>
+    		"data-cid" => @table.id, id: 'message_body', placeholder: 'Enter your message ...' %>
     </div>
  
     <%= f.submit 'Submit', class: 'btn btn-primary btn-lg' %>
