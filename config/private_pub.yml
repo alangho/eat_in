@@ -5,6 +5,7 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "secret"
 production:
-  server: "http://example.com/faye"
-  secret_token: "f00cbb63c18dbf61ca3ecfe403625a1b138b422bb66141c3349ffc9eacffed0b"
+  server: "https://heroku-ppub.herokuapp.com/faye"
+  secret_token: "acf7afb0e7ab87eb5681a0337264028652e67fd6f4f6a55fcafbbb7a089c1ad3"
   signature_expiration: 3600 # one hour
+
