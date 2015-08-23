@@ -19,5 +19,5 @@
 //= require faye
 //= require microposts
 //= require comments
-//= require messages
+//= require private_pub
 //= require_tree .

@@ -1,7 +1,4 @@
-publisher = client.publish('/messages', {
-  message: '<%= j render @message %>'
-});
- 
-publisher.callback(function() {
-  $('#message_body').val('');
-});
+<% publish_to table_path(@table) do %>
+  $("#table_<%= @table.id %>_messages").prepend("<%= j render(@message) %>");
+  $("#message_body").val('');
+<% end %>

@@ -20,6 +20,7 @@ gem 'jbuilder',                '2.2.3'
 gem 'friendly_id',             '~> 5.1.0'
 gem 'faye-rails',              '~> 2.0'
 gem 'thin'
+gem 'private_pub'
 gem 'countries'
 gem 'country_select'
 gem 'sdoc',                    '0.4.0', group: :doc

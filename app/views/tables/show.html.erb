@@ -14,10 +14,12 @@
 <% end %>
 
 <%= render 'messages/form' %>
-  <div class="panel panel-default" id="messages">
+  <div class="panel panel-default" id="table_<%= @table.id %>_messages">
     <div class="panel-body">
       <ul class="media-list">
-        <%= render @messages %>
+        <%= render @table.messages %>
       </ul>
     </div>
   </div>
+
+  <%= subscribe_to table_path(@table) %>
