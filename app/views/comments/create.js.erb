@@ -1,4 +1,4 @@
 <% publish_to micropost_path(@micropost) do %>
-  $("div#micropost_<%= @micropost.id %>").append("<%= j render(@comment) %>");
+  $("#micropost_<%= @micropost.id %>").append("<%= j render(@comment) %>");
   $("textarea#comment_body.form-control").val('');
 <% end %>
