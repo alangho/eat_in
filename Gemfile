@@ -23,6 +23,7 @@ gem 'thin'
 gem 'private_pub'
 gem 'countries'
 gem 'country_select'
+gem 'has_scope'
 gem 'sdoc',                    '0.4.0', group: :doc
 
 group :development, :test do

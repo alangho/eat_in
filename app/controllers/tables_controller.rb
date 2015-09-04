@@ -1,5 +1,8 @@
 class TablesController < ApplicationController
 
+  has_scope :cuisine
+  has_scope :keywords
+
   def create
     @table = Table.new(table_params)
     @table.user = current_user
@@ -15,10 +18,8 @@ class TablesController < ApplicationController
 	end
 
 	def index
-    @tables = Table.paginate(page: params[:page], per_page: 48)
-    if params[:search] || params[:keywords] 
-  	 @tables = Table.paginate(page: params[:page], per_page: 48).search(params[:cuisine], params[:keywords])
-    end
+    @tables = apply_scopes(Table).all.paginate(page: params[:page], per_page: 48)
+    
     respond_to do |format|
       format.html
       format.js

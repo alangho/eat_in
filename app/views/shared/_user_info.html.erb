@@ -4,7 +4,7 @@
 <h3><%= @user.username %></h3>
 
 <div class="col-md-12">
-	<% country = Country.find_country_by_alpha2(@user.location) %>
+	<% country = ISO3166::Country.find_country_by_alpha2(@user.location) %>
 	<p>Location: <%= country.name %> <br \>
 	About me: <%= @user.about_me %></p>
 </div>
