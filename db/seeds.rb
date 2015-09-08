@@ -1,4 +1,4 @@
-countries_array = Country.all
+countries_array = ISO3166::Country.all
 # Users
 User.create!(username:  "Example User",
              email: "example@railstutorial.org",
@@ -7,7 +7,7 @@ User.create!(username:  "Example User",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now,
-             location: countries_array.sample[1], 
+             location: countries_array.sample.alpha2, 
              about_me: Faker::Lorem.sentence(10),
              avatar: Faker::Avatar.image)
 #remote_avatar_url: Faker::Avatar.image works, but images too large
@@ -18,7 +18,7 @@ User.create!(username:  "Ivana",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now,
-             location: countries_array.sample[1], 
+             location: countries_array.sample.alpha2,
              about_me: Faker::Lorem.sentence(10),
              avatar: Faker::Avatar.image)
 
@@ -33,7 +33,7 @@ User.create!(username:  "Ivana",
               admin: false,
               activated: true,
               activated_at: Time.zone.now,
-              location: countries_array.sample[1], 
+              location: countries_array.sample.alpha2,
               about_me: Faker::Lorem.sentence(10),
               avatar: Faker::Avatar.image)
 end

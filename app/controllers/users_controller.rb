@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.friendly.find(params[:id])
-    @countries = Country.all
+    @countries = ISO3166::Country.all
   end
 
   def update

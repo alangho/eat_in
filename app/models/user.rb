@@ -106,6 +106,10 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+  def country
+    super.name
+  end
+
   private
 
       # Converts email to all lower-case.
